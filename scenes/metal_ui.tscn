@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://dd50oq2ukqh26"]
+
+[ext_resource type="Script" uid="uid://2ex8gy8dsggt" path="res://scenes/metal_ui.gd" id="1_v7g4y"]
+[ext_resource type="Texture2D" uid="uid://d4eqbq8o4n87r" path="res://assets/sprite_sheets/ui_metal.png" id="1_yxml2"]
+[ext_resource type="Texture2D" uid="uid://d3fmdjakcq6qp" path="res://assets/sprite_sheets/bars.png" id="2_6xnx4"]
+[ext_resource type="Texture2D" uid="uid://dqmdf5c24mu0c" path="res://assets/sprite_sheets/types.png" id="3_glhqv"]
+[ext_resource type="FontFile" uid="uid://cw8cs727y8ab0" path="res://assets/fonts/ark-pixel-16px-monospaced-latin.otf" id="5_edks0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edks0"]
+atlas = ExtResource("2_6xnx4")
+region = Rect2(0, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6t1a"]
+atlas = ExtResource("2_6xnx4")
+region = Rect2(0, 16, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0epbt"]
+atlas = ExtResource("2_6xnx4")
+region = Rect2(0, 32, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vfwy"]
+atlas = ExtResource("2_6xnx4")
+region = Rect2(0, 48, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tafyk"]
+atlas = ExtResource("2_6xnx4")
+region = Rect2(0, 64, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwq3r"]
+atlas = ExtResource("2_6xnx4")
+region = Rect2(0, 80, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c08h"]
+atlas = ExtResource("3_glhqv")
+region = Rect2(0, 0, 48, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhfri"]
+atlas = ExtResource("3_glhqv")
+region = Rect2(0, 24, 48, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hbkr"]
+atlas = ExtResource("3_glhqv")
+region = Rect2(0, 8, 48, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5y2g"]
+atlas = ExtResource("3_glhqv")
+region = Rect2(0, 16, 48, 8)
+
+[node name="MetalUI" type="Control" unique_id=1222576199]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v7g4y")
+bar_textures = Array[Texture2D]([SubResource("AtlasTexture_edks0"), SubResource("AtlasTexture_l6t1a"), SubResource("AtlasTexture_0epbt"), SubResource("AtlasTexture_3vfwy"), SubResource("AtlasTexture_tafyk"), SubResource("AtlasTexture_bwq3r")])
+indicator_textures = Array[Texture2D]([SubResource("AtlasTexture_7c08h"), SubResource("AtlasTexture_uhfri"), SubResource("AtlasTexture_3hbkr"), SubResource("AtlasTexture_v5y2g")])
+
+[node name="Backing" type="TextureRect" parent="." unique_id=568883859]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -160.0
+offset_right = -320.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture = ExtResource("1_yxml2")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=606270477]
+custom_minimum_size = Vector2(40, 16)
+layout_mode = 0
+offset_left = 432.0
+offset_top = 688.0
+offset_right = 472.0
+offset_bottom = 704.0
+scale = Vector2(4, 4)
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=181217679]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 1
+offset_left = 624.0
+offset_top = 696.0
+offset_right = 656.0
+offset_bottom = 704.0
+scale = Vector2(4, 4)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=387364473]
+texture_filter = 1
+layout_mode = 0
+offset_left = 104.0
+offset_top = 736.0
+offset_right = 144.0
+offset_bottom = 759.0
+scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("5_edks0")
+theme_override_font_sizes/font_size = 16
+text = "Score"
+
+[node name="HealthLabel" type="Label" parent="." unique_id=1827532492]
+texture_filter = 1
+layout_mode = 0
+offset_left = 928.0
+offset_top = 712.0
+offset_right = 968.0
+offset_bottom = 735.0
+scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("5_edks0")
+theme_override_font_sizes/font_size = 16
+text = "Time"

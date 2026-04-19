@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://bnyssj07s4m4m"]
+
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="1_526me"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_v3w0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it4js"]
+atlas = ExtResource("2_v3w0e")
+region = Rect2(40, 0, 8, 8)
+
+[resource]
+script = ExtResource("1_526me")
+texture = SubResource("AtlasTexture_it4js")
+item_name = "Diamond Ring"
+description = "Valuable"
+point_value = 150
+rarity = 2
+detection_type = 2
+gold = true
+metadata/_custom_type_script = "uid://c3d75xegb4i2u"

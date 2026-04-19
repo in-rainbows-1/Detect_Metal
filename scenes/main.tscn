@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvcu813oajup2"]
+
+[ext_resource type="PackedScene" uid="uid://byb7qqf88gxhr" path="res://scenes/zone_1.tscn" id="2_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://icq06qkh4jjd" path="res://assets/sounds/detect_metalv2.wav" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dd50oq2ukqh26" path="res://scenes/metal_ui.tscn" id="3_sugp2"]
+
+[node name="Main" type="Node2D" unique_id=231593680]
+texture_filter = 1
+
+[node name="Zone1" parent="." unique_id=838822160 instance=ExtResource("2_0wfyh")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=112393981]
+stream = ExtResource("2_sugp2")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=785202288]
+
+[node name="MetalUI" parent="CanvasLayer" unique_id=1222576199 instance=ExtResource("3_sugp2")]

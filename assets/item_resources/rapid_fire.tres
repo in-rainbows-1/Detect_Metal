@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://cvq6dd4pew0wb"]
+
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="1_hmkqk"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_ri00u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h82co"]
+atlas = ExtResource("2_ri00u")
+region = Rect2(0, 0, 8, 8)
+
+[resource]
+script = ExtResource("1_hmkqk")
+texture = SubResource("AtlasTexture_h82co")
+item_name = "Rapid Fire"
+description = "Increases fire rate"
+bury_value = 30.0
+powerup_type = 4
+metadata/_custom_type_script = "uid://c3d75xegb4i2u"

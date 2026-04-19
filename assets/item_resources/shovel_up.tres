@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://dt8c3c0gukkvf"]
+
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="1_4eu1o"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_l2l46"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brmet"]
+atlas = ExtResource("2_l2l46")
+region = Rect2(0, 8, 8, 8)
+
+[resource]
+script = ExtResource("1_4eu1o")
+texture = SubResource("AtlasTexture_brmet")
+item_name = "Shovel Up"
+description = "Dig from a wider range"
+bury_value = 30.0
+rarity = 1
+powerup_type = 3
+metadata/_custom_type_script = "uid://c3d75xegb4i2u"

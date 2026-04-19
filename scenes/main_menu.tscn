@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ypjxke0mfi03"]
+
+[ext_resource type="Script" uid="uid://q2mlhgviym1h" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://w45w7vjru3hg" path="res://assets/fonts/ark-pixel-12px-monospaced-latin.otf" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=1443779045]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1760951635]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer5" type="MarginContainer" parent="HBoxContainer" unique_id=138599910]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1680271915]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1107453906]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1324054857]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 72
+text = "Detect Metal"
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=126273035]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=462188452]
+layout_mode = 2
+
+[node name="StartGameButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1449395941]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 72
+text = "Start Game"
+
+[node name="EndlessMode" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=555277566]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 72
+text = "Start Game"
+
+[node name="MarginContainer5" type="MarginContainer" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2069345082]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1442829100]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_l6cm7")
+text = "Ludum Dare 59"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=542680979]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer" unique_id=460259358]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

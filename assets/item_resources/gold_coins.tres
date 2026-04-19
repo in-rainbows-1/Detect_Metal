@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://b7v83y7vo46y2"]
+
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="1_vedlv"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_s5d6i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6oh0"]
+atlas = ExtResource("2_s5d6i")
+region = Rect2(24, 0, 8, 8)
+
+[resource]
+script = ExtResource("1_vedlv")
+texture = SubResource("AtlasTexture_q6oh0")
+item_name = "Gold Coins"
+description = "mid tier"
+point_value = 70
+rarity = 1
+detection_type = 2
+gold = true
+metadata/_custom_type_script = "uid://c3d75xegb4i2u"

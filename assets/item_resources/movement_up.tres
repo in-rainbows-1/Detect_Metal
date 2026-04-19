@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://cqs2fhyu3os61"]
+
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="1_jgehu"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_4k6q4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsovk"]
+atlas = ExtResource("2_4k6q4")
+region = Rect2(8, 8, 8, 8)
+
+[resource]
+script = ExtResource("1_jgehu")
+texture = SubResource("AtlasTexture_xsovk")
+item_name = "Movement Up"
+description = "Stackable movement speed"
+bury_value = 30.0
+powerup_type = 1
+metadata/_custom_type_script = "uid://c3d75xegb4i2u"

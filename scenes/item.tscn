@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://x37f0mjrvtf0"]
+
+[ext_resource type="Script" uid="uid://cldhevy0onrg" path="res://scripts/item.gd" id="1_4gq7n"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_s8enn"]
+[ext_resource type="AudioStream" uid="uid://b3c7uqu14uh2m" path="res://assets/sounds/impact_1776616175876.wav" id="4_ro5b8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gq7n"]
+radius = 4.1231055
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6muww"]
+atlas = ExtResource("2_s8enn")
+region = Rect2(16, 0, 8, 8)
+
+[node name="Item" type="Area2D" unique_id=1026763051]
+texture_filter = 1
+collision_layer = 3
+script = ExtResource("1_4gq7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701973720]
+shape = SubResource("CircleShape2D_4gq7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1927626976]
+texture = SubResource("AtlasTexture_6muww")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1767248698]
+stream = ExtResource("4_ro5b8")

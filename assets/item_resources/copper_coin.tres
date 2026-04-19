@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://chslj7fh1acbv"]
+
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="1_gt7k1"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_ihoxw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75gmx"]
+atlas = ExtResource("2_ihoxw")
+region = Rect2(24, 8, 8, 8)
+
+[resource]
+script = ExtResource("1_gt7k1")
+texture = SubResource("AtlasTexture_75gmx")
+item_name = "Copper Coin"
+description = "Single copper coin"
+point_value = 10
+bury_value = 10.0
+detection_type = 2
+metadata/_custom_type_script = "uid://c3d75xegb4i2u"

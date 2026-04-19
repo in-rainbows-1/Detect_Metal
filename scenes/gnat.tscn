@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cl0u0be40c5vv"]
+
+[ext_resource type="Texture2D" uid="uid://blqnd6cf6vhij" path="res://assets/sprite_sheets/enemy_sprites.png" id="1_0amyf"]
+[ext_resource type="Script" uid="uid://ckiogqodc15kg" path="res://scripts/gnat.gd" id="1_nqief"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqief"]
+atlas = ExtResource("1_0amyf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u6gj"]
+atlas = ExtResource("1_0amyf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ximyn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqief")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u6gj")
+}],
+"loop": true,
+"name": &"Flying",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0amyf"]
+radius = 9.0
+
+[node name="Gnat" type="Area2D" unique_id=2025459786]
+texture_filter = 1
+script = ExtResource("1_nqief")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=285747522]
+sprite_frames = SubResource("SpriteFrames_ximyn")
+animation = &"Flying"
+autoplay = "Flying"
+frame_progress = 0.752563
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1885736297]
+shape = SubResource("CircleShape2D_0amyf")

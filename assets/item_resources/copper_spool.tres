@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://bc4oqyntkpchf"]
+
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="1_doqnm"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_0hayo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sim4o"]
+atlas = ExtResource("2_0hayo")
+region = Rect2(32, 8, 8, 8)
+
+[resource]
+script = ExtResource("1_doqnm")
+texture = SubResource("AtlasTexture_sim4o")
+item_name = "Copper Spool"
+description = "Most valuable copper."
+point_value = 50
+bury_value = 15.0
+rarity = 1
+metadata/_custom_type_script = "uid://c3d75xegb4i2u"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://bcx2o3yotn4i7"]
+
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="1_tojy5"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_vyjds"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecbh8"]
+atlas = ExtResource("2_vyjds")
+region = Rect2(8, 0, 8, 8)
+
+[resource]
+script = ExtResource("1_tojy5")
+texture = SubResource("AtlasTexture_ecbh8")
+item_name = "Wide Pellets"
+description = "Shoot wider pellets."
+bury_value = 30.0
+rarity = 1
+powerup_type = 5
+metadata/_custom_type_script = "uid://c3d75xegb4i2u"

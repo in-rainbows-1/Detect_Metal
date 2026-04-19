@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://yvj5vp1suwuv"]
+
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="1_vyygc"]
+[ext_resource type="Texture2D" uid="uid://bxxafytoboj8p" path="res://assets/sprite_sheets/item_atlas.png" id="2_s44qc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxh5r"]
+atlas = ExtResource("2_s44qc")
+region = Rect2(40, 8, 8, 8)
+
+[resource]
+script = ExtResource("1_vyygc")
+texture = SubResource("AtlasTexture_rxh5r")
+item_name = "Apple"
+description = "Is sort of metallic."
+restore_points = 25
+rarity = 2
+detection_type = 0
+metadata/_custom_type_script = "uid://c3d75xegb4i2u"

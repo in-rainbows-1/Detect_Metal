@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://crqxstkswkw2j"]
+
+[ext_resource type="Script" uid="uid://batkd8tmwmbr5" path="res://scripts/pellet.gd" id="1_euuo5"]
+[ext_resource type="Texture2D" uid="uid://civhnnvvb7q8k" path="res://assets/sprite_sheets/pellet_final.png" id="2_bonx2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ce1dw"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imiex"]
+atlas = ExtResource("2_bonx2")
+region = Rect2(0, 0, 8, 8)
+
+[node name="Pellet" type="Area2D" unique_id=1752603692]
+texture_filter = 1
+script = ExtResource("1_euuo5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2071777794]
+shape = SubResource("CircleShape2D_ce1dw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1827837949]
+texture = SubResource("AtlasTexture_imiex")
