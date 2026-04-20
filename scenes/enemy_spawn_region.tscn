@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dgdy5fhi7mylp"]
+
+[ext_resource type="Script" uid="uid://c4gb0soc1rx1o" path="res://scripts/enemy_spawn_region.gd" id="1_oydoc"]
+
+[node name="EnemySpawnRegion" type="Area2D" unique_id=1169040710]
+script = ExtResource("1_oydoc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=936216402]
+polygon = PackedVector2Array(498, -355, 315, -168, -189, -173, -389, -337)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=858468915]
+position = Vector2(-66, 163)
+rotation = -1.5549127
+polygon = PackedVector2Array(498, -355, 315, -168, -189, -173, -389, -337)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="." unique_id=1195209818]
+position = Vector2(149.99997, 149.99998)
+rotation = -3.1380234
+polygon = PackedVector2Array(498, -355, 315, -168, -189, -173, -389, -337)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="." unique_id=865440020]
+position = Vector2(209, -10)
+rotation = -4.692936
+polygon = PackedVector2Array(498, -355, 315, -168, -189, -173, -389, -337)
