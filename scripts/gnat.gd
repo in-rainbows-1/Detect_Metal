@@ -1,11 +1,12 @@
 extends Area2D
 
-@export var speed: float = 10.0
+@export var speed: float = 20.0
 @export var health: int = 5
 
 var player: Player = null
 
 func _ready() -> void:
+	add_to_group("enemy")
 	await get_tree().process_frame
 	player = get_tree().get_first_node_in_group("player")
 	area_entered.connect(_on_area_entered)

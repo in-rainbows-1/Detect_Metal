@@ -41,6 +41,7 @@ script = ExtResource("2_qhqgy")
 [node name="AttackRate" type="Timer" parent="." unique_id=632243205]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1287448141]
+position = Vector2(0, 19)
 zoom = Vector2(4, 4)
 
 [node name="DigArea" type="Area2D" parent="." unique_id=763412158]

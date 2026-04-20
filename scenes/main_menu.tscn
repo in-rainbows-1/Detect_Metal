@@ -51,13 +51,19 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 72
-text = "Start Game"
+text = "Zone S"
 
 [node name="EndlessMode" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=555277566]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 72
-text = "Start Game"
+text = "Zone M"
+
+[node name="EndlessMode2" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1940935701]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 72
+text = "Zone L"
 
 [node name="MarginContainer5" type="MarginContainer" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2069345082]
 custom_minimum_size = Vector2(0, 60)

@@ -97,10 +97,10 @@ scale = Vector2(4, 4)
 [node name="ScoreLabel" type="Label" parent="." unique_id=387364473]
 texture_filter = 1
 layout_mode = 0
-offset_left = 104.0
-offset_top = 736.0
-offset_right = 144.0
-offset_bottom = 759.0
+offset_left = 264.0
+offset_top = 685.0
+offset_right = 304.0
+offset_bottom = 708.0
 scale = Vector2(4, 4)
 theme_override_fonts/font = ExtResource("5_edks0")
 theme_override_font_sizes/font_size = 16
@@ -109,11 +109,19 @@ text = "Score"
 [node name="HealthLabel" type="Label" parent="." unique_id=1827532492]
 texture_filter = 1
 layout_mode = 0
-offset_left = 928.0
-offset_top = 712.0
-offset_right = 968.0
-offset_bottom = 735.0
+offset_left = 174.0
+offset_top = 645.0
+offset_right = 214.0
+offset_bottom = 668.0
 scale = Vector2(4, 4)
 theme_override_fonts/font = ExtResource("5_edks0")
 theme_override_font_sizes/font_size = 16
 text = "Time"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=203171138]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 664.0
+offset_right = 1120.0
+offset_bottom = 709.36
+color = Color(0.06666667, 0.06666667, 0.06666667, 1)

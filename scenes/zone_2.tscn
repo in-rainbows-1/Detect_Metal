@@ -2,6 +2,22 @@
 
 [ext_resource type="TileSet" uid="uid://bvtmquegat8ld" path="res://assets/tile_maps/detect_metal_tiles.tres" id="1_nybbh"]
 [ext_resource type="PackedScene" uid="uid://t24aig2usx7l" path="res://scenes/player.tscn" id="2_q83xm"]
+[ext_resource type="Script" uid="uid://c4gb0soc1rx1o" path="res://scripts/enemy_spawn_region.gd" id="3_vqavc"]
+[ext_resource type="PackedScene" uid="uid://dd50oq2ukqh26" path="res://scenes/metal_ui.tscn" id="4_hadne"]
+[ext_resource type="AudioStream" uid="uid://icq06qkh4jjd" path="res://assets/sounds/detect_metalv2.wav" id="5_8al6t"]
+[ext_resource type="FontFile" uid="uid://5o1xqq00iq58" path="res://assets/fonts/ark-pixel-10px-monospaced-latin.otf" id="5_r4c7t"]
+[ext_resource type="Script" uid="uid://d2g0vvy88f4gc" path="res://scripts/spawn_region.gd" id="7_rbg2t"]
+[ext_resource type="Resource" uid="uid://yvj5vp1suwuv" path="res://assets/item_resources/apple.tres" id="8_eujsy"]
+[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="9_sjvwj"]
+[ext_resource type="Resource" uid="uid://chslj7fh1acbv" path="res://assets/item_resources/copper_coin.tres" id="10_b6cw7"]
+[ext_resource type="Resource" uid="uid://bc4oqyntkpchf" path="res://assets/item_resources/copper_spool.tres" id="11_edsy4"]
+[ext_resource type="Resource" uid="uid://bnyssj07s4m4m" path="res://assets/item_resources/diamond_ring.tres" id="12_8cgi5"]
+[ext_resource type="Resource" uid="uid://b7v83y7vo46y2" path="res://assets/item_resources/gold_coins.tres" id="13_tdh8a"]
+[ext_resource type="Resource" uid="uid://cu4cky60wqkl1" path="res://assets/item_resources/gold_ring.tres" id="14_3sfin"]
+[ext_resource type="Resource" uid="uid://cqs2fhyu3os61" path="res://assets/item_resources/movement_up.tres" id="15_nfbxg"]
+[ext_resource type="Resource" uid="uid://cvq6dd4pew0wb" path="res://assets/item_resources/rapid_fire.tres" id="16_ayr3d"]
+[ext_resource type="Resource" uid="uid://dt8c3c0gukkvf" path="res://assets/item_resources/shovel_up.tres" id="17_6bdss"]
+[ext_resource type="Resource" uid="uid://bcx2o3yotn4i7" path="res://assets/item_resources/wide_pellets.tres" id="18_s7qjh"]
 
 [node name="zone_2" type="Node2D" unique_id=359437885]
 texture_filter = 1
@@ -12,5 +28,77 @@ tile_set = ExtResource("1_nybbh")
 
 [node name="Player" parent="." unique_id=1905604604 instance=ExtResource("2_q83xm")]
 
-[node name="RoundTimer" type="Timer" parent="." unique_id=731858316]
-wait_time = 240.0
+[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=627580715]
+autostart = true
+
+[node name="EnemySpawnRegion" type="Area2D" parent="." unique_id=1169040710]
+script = ExtResource("3_vqavc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemySpawnRegion" unique_id=936216402]
+position = Vector2(198.35513, -566)
+scale = Vector2(1.4705468, 1)
+polygon = PackedVector2Array(498, -355, 486.6522, -124, -357.25153, -143, -389, -337)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="EnemySpawnRegion" unique_id=858468915]
+position = Vector2(-153, 45.000015)
+rotation = -1.5549127
+polygon = PackedVector2Array(675.5926, -408.78198, 710.01935, -193.30159, -394.3012, -141.75522, -389, -337)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="EnemySpawnRegion" unique_id=1195209818]
+position = Vector2(279, 127)
+rotation = -3.1380234
+polygon = PackedVector2Array(498, -355, 315, -168, -594.371, -102.879196, -754.2909, -360.31)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="EnemySpawnRegion" unique_id=865440020]
+position = Vector2(747.99994, -241)
+rotation = -4.692936
+polygon = PackedVector2Array(498, -355, 504.14966, -202.84497, -380.52722, -177.63165, -389, -337)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=713044097]
+
+[node name="MetalUI" parent="CanvasLayer" unique_id=1222576199 instance=ExtResource("4_hadne")]
+
+[node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=1784763102]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu" unique_id=896830094]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MuteToggle" type="CheckButton" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=801720299]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_r4c7t")
+theme_override_font_sizes/font_size = 16
+text = "Mute"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=881079400]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_r4c7t")
+theme_override_font_sizes/font_size = 16
+text = "Quit to menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1807917345]
+stream = ExtResource("5_8al6t")
+autoplay = true
+
+[node name="SpawnRegion" type="Area2D" parent="." unique_id=1584761636]
+script = ExtResource("7_rbg2t")
+item_data = ExtResource("8_eujsy")
+item_pool = Array[ExtResource("9_sjvwj")]([ExtResource("8_eujsy"), ExtResource("10_b6cw7"), ExtResource("11_edsy4"), ExtResource("12_8cgi5"), ExtResource("13_tdh8a"), ExtResource("14_3sfin"), ExtResource("15_nfbxg"), ExtResource("16_ayr3d"), ExtResource("17_6bdss"), ExtResource("18_s7qjh")])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpawnRegion" unique_id=2092634980]
+polygon = PackedVector2Array(815, -465, 785, 3, -36, -130, -32, -503)
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=269005857]

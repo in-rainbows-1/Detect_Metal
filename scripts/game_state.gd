@@ -1,5 +1,9 @@
 extends Node
 
+const game_over = preload("res://scenes/game_over.tscn")
+
+
+
 enum Rarity { COMMON, UNCOMMON, RARE }
 enum DetectionType { HEALTH, POWER, SCORING }
 enum PowerupType { NONE, SPEED, DIG_SPEED, DIG_AREA, FIRE_RATE, WIDE_PELLET }
@@ -36,6 +40,8 @@ func update_nearest_item() -> void:
 
 func update_player_health():
 	player_health = player.hit_points
+	if player_health == 0:
+		end_game()
 
 func end_game():
-	pass # show final score
+	get_tree().change_scene_to_packed(game_over)

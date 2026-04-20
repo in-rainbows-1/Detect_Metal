@@ -4,26 +4,11 @@ extends Area2D
 const ItemScene = preload("res://scenes/item.tscn")
 
 @export var item_population: int = 10
-var item_pool: Array[ItemTemplate] = []
-
+@export var item_pool: Array[ItemTemplate] = []
 
 func _ready() -> void:
-	_load_item_pool()
 	call_deferred("spawn_items")
 	
-func _load_item_pool():
-	var dir = DirAccess.open("res://assets/item_resources")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var resource = load("res://assets/item_resources/" + file_name)
-				if resource is ItemTemplate:
-					item_pool.append(resource)
-			file_name = dir.get_next()
-		dir.list_dir_end()
-
 func spawn_items():
 	var polygon = $CollisionPolygon2D.polygon
 	var bounding_rect = Rect2(polygon[0], Vector2.ZERO)

@@ -3,7 +3,6 @@ class_name Item
 
 @export var data: ItemTemplate
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var audio_stream_player_2: AudioStreamPlayer = $AudioStreamPlayer2
 
 signal revealed

@@ -14,7 +14,11 @@ const PelletScene = preload("res://scenes/pellet.tscn")
 @onready var power_get: AudioStreamPlayer = $PowerGet
 @onready var hp_get: AudioStreamPlayer = $HPGet
 @onready var coin_get: AudioStreamPlayer = $CoinGet
-@onready var round_timer: Timer = $"../RoundTimer"
+
+@onready var pause_menu: Control = $"../CanvasLayer/PauseMenu"
+@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
+@onready var mute_toggle: CheckButton = $"../CanvasLayer/PauseMenu/VBoxContainer/MuteToggle"
+@onready var quit_button: Button = $"../CanvasLayer/PauseMenu/VBoxContainer/QuitButton"
 
 var last_facing := Vector2(0, -1)
 var attacking: bool = false
@@ -24,12 +28,15 @@ var pellet_width: bool = false
 
 
 func _ready():
+	pause_menu.hide()
 	add_to_group("player")
 	GameState.player = self
 	GameState.update_player_health()
 	dig_area.area_entered.connect(_on_dig_area_entered)
 	pickup_hitbox.area_entered.connect(_on_pickup)
 	hitbox.area_entered.connect(_on_hitbox_area_entered)
+	mute_toggle.toggled.connect(_on_mute_toggled)
+	quit_button.pressed.connect(_on_quit_pressed)
 	attack_rate.one_shot = true
 
 func get_input():
@@ -37,12 +44,18 @@ func get_input():
 	velocity = input_direction * speed
 	if velocity != Vector2.ZERO:
 		last_facing = velocity.normalized()
+	if Input.is_action_just_pressed("pause"):
+		if pause_menu.visible == false:
+			pause_menu.show()
+		else:
+			pause_menu.hide()
+	
 
 func _physics_process(delta: float) -> void:
 	GameState.update_nearest_item()
+	GameState.update_player_health()
 	if Input.is_action_pressed("button_a"):
 		attacking = true
-		print("attacking: ", attacking)
 		attack()
 	else:
 		attacking = false
@@ -50,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	global_position = global_position.round()
 	_process_digging(delta)
-
+	
 func attack():
 	if !attack_rate.is_stopped():
 		return
@@ -82,11 +95,11 @@ func apply_powerup(powerup_type: GameState.PowerupType):
 		GameState.PowerupType.WIDE_PELLET:
 			pellet_width = true
 		GameState.PowerupType.FIRE_RATE:
-			attack_rate.wait_time *= 0.8
+			attack_rate.wait_time *= 0.25
 		GameState.PowerupType.DIG_AREA:
 			dig_area.get_child(0).shape.radius *= 1.5
 		GameState.PowerupType.SPEED:
-			speed *= 1.33
+			speed *= 1.6
 
 func emit_score_sound():
 	coin_get.play(0.0)
@@ -105,3 +118,8 @@ func _take_damage(amount: int) -> void:
 	if hit_points <= 0:
 		GameState.end_game()
 		
+func _on_mute_toggled(button_pressed: bool) -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), button_pressed)
+	
+func _on_quit_pressed() -> void:
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
