@@ -7,6 +7,7 @@ class_name Item
 
 signal revealed
 
+
 func _ready():
 	visible = false
 	
@@ -16,15 +17,13 @@ func _ready():
 	if data:
 		sprite_2d.texture = data.texture
 
-
 func setup(incoming_data: ItemTemplate) -> void:
 	data = incoming_data.duplicate()
-	print("setup called, bury_value: ", data.bury_value)
-	
+
 func _exit_tree():
 	GameState.unregister_item(self)
 
-func dig(amount: float) -> void: 
+func dig(amount: float) -> void:
 	if data.bury_value >= 1:
 		data.bury_value -= amount
 		if data.bury_value == 0: 
@@ -32,7 +31,7 @@ func dig(amount: float) -> void:
 			audio_stream_player_2.play(0.0)
 			revealed.emit()
 			return
-		
+
 func _on_revealed() -> void:
 	if data.type == GameState.Type.SCORING:
 		GameState.add_score(data.score_value)
@@ -47,4 +46,3 @@ func apply_self(target: Player) -> void:
 		GameState.DetectionType.POWER:
 			target.apply_powerup(data.powerup_type)
 	queue_free()
-	

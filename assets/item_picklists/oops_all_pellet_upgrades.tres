@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemPicklist" format=3 uid="uid://bskgnvsy50qll"]
+
+[ext_resource type="Resource" uid="uid://bcx2o3yotn4i7" path="res://assets/item_resources/wide_pellets.tres" id="1_0scx1"]
+[ext_resource type="Script" uid="uid://d2kpwkfs0nx64" path="res://scripts/item_picklist.gd" id="1_s13b3"]
+[ext_resource type="Resource" uid="uid://cvq6dd4pew0wb" path="res://assets/item_resources/rapid_fire.tres" id="2_quf1f"]
+
+[resource]
+script = ExtResource("1_s13b3")
+item_pool = [ExtResource("1_0scx1"), ExtResource("2_quf1f")]
+metadata/_custom_type_script = "uid://d2kpwkfs0nx64"

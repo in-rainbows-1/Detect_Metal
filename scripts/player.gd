@@ -17,8 +17,7 @@ const PelletScene = preload("res://scenes/pellet.tscn")
 
 @onready var pause_menu: Control = $"../CanvasLayer/PauseMenu"
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
-@onready var mute_toggle: CheckButton = $"../CanvasLayer/PauseMenu/VBoxContainer/MuteToggle"
-@onready var quit_button: Button = $"../CanvasLayer/PauseMenu/VBoxContainer/QuitButton"
+
 
 var last_facing := Vector2(0, -1)
 var attacking: bool = false
@@ -35,8 +34,6 @@ func _ready():
 	dig_area.area_entered.connect(_on_dig_area_entered)
 	pickup_hitbox.area_entered.connect(_on_pickup)
 	hitbox.area_entered.connect(_on_hitbox_area_entered)
-	mute_toggle.toggled.connect(_on_mute_toggled)
-	quit_button.pressed.connect(_on_quit_pressed)
 	attack_rate.one_shot = true
 
 func get_input():
@@ -68,9 +65,10 @@ func attack():
 	if !attack_rate.is_stopped():
 		return
 	var p = PelletScene.instantiate()
+	p.setup(last_facing, 200, pellet_width)
 	get_tree().current_scene.find_child("Projectiles").add_child(p)
 	p.global_position = global_position
-	p.setup(last_facing, 200, pellet_width)
+
 	attack_rate.start(cooldown)
 
 func _on_dig_area_entered(area: Area2D):
@@ -118,8 +116,3 @@ func _take_damage(amount: int) -> void:
 	if hit_points <= 0:
 		GameState.end_game()
 		
-func _on_mute_toggled(button_pressed: bool) -> void:
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), button_pressed)
-	
-func _on_quit_pressed() -> void:
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

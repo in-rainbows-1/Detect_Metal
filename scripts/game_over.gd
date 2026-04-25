@@ -9,5 +9,8 @@ const main_menu = preload("res://scenes/main_menu.tscn")
 func _ready() -> void:
 	retry_button.pressed.connect(_on_retry_button_pressed)
 	final_score.text = str(GameState.score)
+	
 func _on_retry_button_pressed():
+	
+	GameState.score = 0
 	get_tree().change_scene_to_packed(main_menu)

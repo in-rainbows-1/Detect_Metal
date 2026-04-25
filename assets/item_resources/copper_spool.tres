@@ -15,4 +15,5 @@ description = "Most valuable copper."
 point_value = 50
 bury_value = 15.0
 rarity = 1
+detection_type = 2
 metadata/_custom_type_script = "uid://c3d75xegb4i2u"

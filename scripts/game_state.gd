@@ -2,8 +2,6 @@ extends Node
 
 const game_over = preload("res://scenes/game_over.tscn")
 
-
-
 enum Rarity { COMMON, UNCOMMON, RARE }
 enum DetectionType { HEALTH, POWER, SCORING }
 enum PowerupType { NONE, SPEED, DIG_SPEED, DIG_AREA, FIRE_RATE, WIDE_PELLET }
@@ -12,6 +10,7 @@ var player: Player
 var player_health: int
 var distance_to_nearest: float = INF
 var score: int = 0
+var highscore: int = 0
 var active_items: Array[Item] = []
 var nearest_gold: bool = false
 var nearest_type: DetectionType = DetectionType.SCORING
@@ -45,3 +44,4 @@ func update_player_health():
 
 func end_game():
 	get_tree().change_scene_to_packed(game_over)
+	

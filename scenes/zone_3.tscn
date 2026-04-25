@@ -4,20 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://t24aig2usx7l" path="res://scenes/player.tscn" id="2_q83xm"]
 [ext_resource type="Script" uid="uid://c4gb0soc1rx1o" path="res://scripts/enemy_spawn_region.gd" id="3_d0njk"]
 [ext_resource type="PackedScene" uid="uid://dd50oq2ukqh26" path="res://scenes/metal_ui.tscn" id="4_m1erh"]
-[ext_resource type="FontFile" uid="uid://5o1xqq00iq58" path="res://assets/fonts/ark-pixel-10px-monospaced-latin.otf" id="5_y3eoq"]
+[ext_resource type="PackedScene" uid="uid://c73xm7wvecf28" path="res://scenes/pause_menu.tscn" id="5_d0njk"]
 [ext_resource type="AudioStream" uid="uid://icq06qkh4jjd" path="res://assets/sounds/detect_metalv2.wav" id="6_udpnq"]
 [ext_resource type="Script" uid="uid://d2g0vvy88f4gc" path="res://scripts/spawn_region.gd" id="7_l8oc1"]
-[ext_resource type="Resource" uid="uid://yvj5vp1suwuv" path="res://assets/item_resources/apple.tres" id="8_xiek5"]
-[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="9_exif0"]
-[ext_resource type="Resource" uid="uid://chslj7fh1acbv" path="res://assets/item_resources/copper_coin.tres" id="10_l3kf5"]
-[ext_resource type="Resource" uid="uid://bc4oqyntkpchf" path="res://assets/item_resources/copper_spool.tres" id="11_60aoh"]
-[ext_resource type="Resource" uid="uid://bnyssj07s4m4m" path="res://assets/item_resources/diamond_ring.tres" id="12_l2tqv"]
-[ext_resource type="Resource" uid="uid://b7v83y7vo46y2" path="res://assets/item_resources/gold_coins.tres" id="13_7n23b"]
-[ext_resource type="Resource" uid="uid://cu4cky60wqkl1" path="res://assets/item_resources/gold_ring.tres" id="14_x4efg"]
-[ext_resource type="Resource" uid="uid://cqs2fhyu3os61" path="res://assets/item_resources/movement_up.tres" id="15_smcp4"]
-[ext_resource type="Resource" uid="uid://cvq6dd4pew0wb" path="res://assets/item_resources/rapid_fire.tres" id="16_ljk5i"]
-[ext_resource type="Resource" uid="uid://dt8c3c0gukkvf" path="res://assets/item_resources/shovel_up.tres" id="17_ay5hg"]
-[ext_resource type="Resource" uid="uid://bcx2o3yotn4i7" path="res://assets/item_resources/wide_pellets.tres" id="18_3ytb4"]
+[ext_resource type="Resource" uid="uid://bskgnvsy50qll" path="res://assets/item_picklists/oops_all_pellet_upgrades.tres" id="9_m1erh"]
 
 [node name="Zone3" type="Node2D" unique_id=632218569]
 texture_filter = 1
@@ -59,36 +49,7 @@ polygon = PackedVector2Array(477.11682, -194.56348, 483.26648, -42.408447, -401.
 
 [node name="MetalUI" parent="CanvasLayer" unique_id=1222576199 instance=ExtResource("4_m1erh")]
 
-[node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=1704478884]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu" unique_id=510002939]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MuteToggle" type="CheckButton" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1420853932]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_y3eoq")
-theme_override_font_sizes/font_size = 16
-text = "Mute"
-
-[node name="QuitButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1466146744]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_y3eoq")
-theme_override_font_sizes/font_size = 16
-text = "Quit to menu"
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1229991265 instance=ExtResource("5_d0njk")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=233401284]
 stream = ExtResource("6_udpnq")
@@ -96,9 +57,8 @@ autoplay = true
 
 [node name="SpawnRegion" type="Area2D" parent="." unique_id=13593155]
 script = ExtResource("7_l8oc1")
-item_data = ExtResource("8_xiek5")
 item_population = 60
-item_pool = Array[ExtResource("9_exif0")]([ExtResource("8_xiek5"), ExtResource("10_l3kf5"), ExtResource("11_60aoh"), ExtResource("12_l2tqv"), ExtResource("13_7n23b"), ExtResource("14_x4efg"), ExtResource("15_smcp4"), ExtResource("16_ljk5i"), ExtResource("17_ay5hg"), ExtResource("18_3ytb4")])
+sampled = ExtResource("9_m1erh")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpawnRegion" unique_id=1276892034]
 polygon = PackedVector2Array(808, -616, 824, -176, -64, -184, -56, -592)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ypjxke0mfi03"]
 
-[ext_resource type="Script" uid="uid://q2mlhgviym1h" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Script" uid="uid://q2mlhgviym1h" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://w45w7vjru3hg" path="res://assets/fonts/ark-pixel-12px-monospaced-latin.otf" id="1_l6cm7"]
 
 [node name="MainMenu" type="Control" unique_id=1443779045]

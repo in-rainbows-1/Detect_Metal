@@ -1,23 +1,12 @@
 [gd_scene format=4 uid="uid://byb7qqf88gxhr"]
 
 [ext_resource type="Script" uid="uid://d2g0vvy88f4gc" path="res://scripts/spawn_region.gd" id="2_mx6oo"]
-[ext_resource type="Script" uid="uid://c3d75xegb4i2u" path="res://scripts/item_template.gd" id="3_jftbo"]
-[ext_resource type="Resource" uid="uid://yvj5vp1suwuv" path="res://assets/item_resources/apple.tres" id="3_m0gs7"]
 [ext_resource type="TileSet" uid="uid://bvtmquegat8ld" path="res://assets/tile_maps/detect_metal_tiles.tres" id="3_yexht"]
 [ext_resource type="PackedScene" uid="uid://dgdy5fhi7mylp" path="res://scenes/enemy_spawn_region.tscn" id="4_7dojk"]
-[ext_resource type="Resource" uid="uid://chslj7fh1acbv" path="res://assets/item_resources/copper_coin.tres" id="4_ocm78"]
-[ext_resource type="Resource" uid="uid://bc4oqyntkpchf" path="res://assets/item_resources/copper_spool.tres" id="5_g6cp3"]
-[ext_resource type="Resource" uid="uid://bnyssj07s4m4m" path="res://assets/item_resources/diamond_ring.tres" id="6_vllsi"]
+[ext_resource type="PackedScene" uid="uid://c73xm7wvecf28" path="res://scenes/pause_menu.tscn" id="6_4d2jd"]
 [ext_resource type="PackedScene" uid="uid://t24aig2usx7l" path="res://scenes/player.tscn" id="6_yexht"]
 [ext_resource type="PackedScene" uid="uid://dd50oq2ukqh26" path="res://scenes/metal_ui.tscn" id="7_4d2jd"]
-[ext_resource type="FontFile" uid="uid://5o1xqq00iq58" path="res://assets/fonts/ark-pixel-10px-monospaced-latin.otf" id="7_m0hb0"]
-[ext_resource type="Resource" uid="uid://b7v83y7vo46y2" path="res://assets/item_resources/gold_coins.tres" id="7_n37lh"]
 [ext_resource type="AudioStream" uid="uid://icq06qkh4jjd" path="res://assets/sounds/detect_metalv2.wav" id="8_m0hb0"]
-[ext_resource type="Resource" uid="uid://cu4cky60wqkl1" path="res://assets/item_resources/gold_ring.tres" id="8_pe57x"]
-[ext_resource type="Resource" uid="uid://cqs2fhyu3os61" path="res://assets/item_resources/movement_up.tres" id="9_3e6lv"]
-[ext_resource type="Resource" uid="uid://cvq6dd4pew0wb" path="res://assets/item_resources/rapid_fire.tres" id="10_hj7ao"]
-[ext_resource type="Resource" uid="uid://dt8c3c0gukkvf" path="res://assets/item_resources/shovel_up.tres" id="11_gs13o"]
-[ext_resource type="Resource" uid="uid://bcx2o3yotn4i7" path="res://assets/item_resources/wide_pellets.tres" id="12_y51wj"]
 
 [node name="Zone1" type="Node2D" unique_id=838822160]
 texture_filter = 1
@@ -26,8 +15,6 @@ texture_filter = 1
 
 [node name="SpawnRegion" type="Area2D" parent="." unique_id=1028089384]
 script = ExtResource("2_mx6oo")
-item_data = ExtResource("3_m0gs7")
-item_pool = Array[ExtResource("3_jftbo")]([ExtResource("3_m0gs7"), ExtResource("4_ocm78"), ExtResource("5_g6cp3"), ExtResource("6_vllsi"), ExtResource("7_n37lh"), ExtResource("8_pe57x"), ExtResource("9_3e6lv"), ExtResource("10_hj7ao"), ExtResource("11_gs13o"), ExtResource("12_y51wj")])
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpawnRegion" unique_id=1776450663]
 polygon = PackedVector2Array(209, -66, 211, 162, -83, 163, -82, -66)
@@ -47,36 +34,7 @@ autostart = true
 
 [node name="MetalUI" parent="CanvasLayer" unique_id=1222576199 instance=ExtResource("7_4d2jd")]
 
-[node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=210182179]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu" unique_id=1371875150]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MuteToggle" type="CheckButton" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=127343945]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_m0hb0")
-theme_override_font_sizes/font_size = 16
-text = "Mute"
-
-[node name="QuitButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" unique_id=1209272077]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_m0hb0")
-theme_override_font_sizes/font_size = 16
-text = "Quit to menu"
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1229991265 instance=ExtResource("6_4d2jd")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=696096755]
 stream = ExtResource("8_m0hb0")
